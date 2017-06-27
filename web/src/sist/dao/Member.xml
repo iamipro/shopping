@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sist.bean.ShoppingMember">
+	<insert id="insertMember" parameterType="member">
+	
+	 insert into shoppingmember values(shoppingmember_seq.nextval,#{id},#{name},#{birth},#{gender},#{email},#{phone},#{zip},#{addr1},#{addr2},#{pw},sysdate)
+	</insert>
+	
+	<!-- <select id="loginCheck" parameterType="java.lang.String"
+		resultType="java.lang.String">
+		select pwd from member where id=#{id}
+
+	</select>
+  <select id="memberLoginCheck" parameterType="java.lang.String" resultType="java.lang.String">
+   select pwd from member where id=#{id}
+      
+  </select>
+
+
+	<sql id="baseselect">
+		pk,filename,productname,productcategory,productprice,productorigin
+	</sql>
+	<select id="selectClient" parameterType="java.util.HashMap"
+		resultType="cart">
+		select b.id id,pk,
+		<include refid="baseselect"></include>
+		,b.name seller,regdate
+		from cart a, member b
+		where a.id=b.id
+		<if test="query!=null">and ${query} like '%'||#{data}||'%' </if>
+
+	</select>
+
+	<select id="selectCart" parameterType="java.util.HashMap"
+		resultType="cart">
+		select b.id
+		id,pk,filename,productname,productcategory,productorigin,productprice,b.name
+		seller
+		from cart a, member b
+		where a.id=b.id and a.id=#{id}
+		<if test="query!=null">and ${query} like '%'||#{data}||'%'</if>
+
+
+
+
+	</select>
+
+	<insert id="insertReply" parameterType="reply">
+		insert into replyview
+		values(#{no},#{contents},#{id},sysdate,#{ref},#{pnum},#{reply},#{infoPk})
+
+	</insert>
+
+  <select id="selectReply" parameterType="java.lang.Integer" resultType="reply">
+     select * from replyview where infopk=#{infoPk} order by ref desc,no asc 
+     
+  </select>
+
+
+	<select id="getReplyNumber" resultType="java.lang.Integer">
+		select replyview_seq.nextval from dual
+	</select>
+
+	<insert id="insertProduct" parameterType="cart">
+
+		INSERT INTO CART
+		VALUES(CART_SEQ.NEXTVAL,#{productName},#{productOrigin},#{productPrice},#{productCategory},#{fileName},sysdate,#{id})
+
+	</insert>
+	<select id="oneCart" parameterType="java.lang.Integer"
+		resultType="cart">
+		select
+		pk,productName,productOrigin,productPrice,productCategory,fileName,regdate,id
+		from cart where pk=#{pk}
+
+	</select>
+	<update id="modifyCart" parameterType="cart">
+		update cart set
+		productName=#{productName},productOrigin=#{productOrigin},productPrice=#{productPrice},productCategory=#{productCategory}
+		<if test="fileName!=null">
+			,fileName=#{fileName}
+		</if>
+		where pk=#{pk}
+	</update>
+	<delete id="deleteCart" parameterType="java.lang.Integer">
+		delete cart where pk=#{pk}
+
+	</delete>
+ -->
+</mapper>
+
+
+
+
+<!-- 타입 알리아스 공용 ibatis는 namespace반드시 써야 한다. -->
