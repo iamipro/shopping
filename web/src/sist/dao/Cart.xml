@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sist.bean.CartBean">
+	<select id="loginCheck" parameterType="java.lang.String"
+		resultType="java.lang.String">
+		SELECT PW FROM MEMBERSI WHERE ID=#{id}
+	</select>
+	<select id="selectProductInfo" parameterType="java.lang.Integer" resultType="cart">
+	 	SELECT ID,PK,FILENAME,PRODUCTNAME,PRODUCTCATEGORY,
+		PRODUCTORIGIN,PRODUCTPRICE,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE
+		FROM CART 
+		WHERE PK=#{PK}
+	</select>
+	<update id="updateProduct" parameterType="cart">
+	   UPDATE CART SET PRODUCTNAME=#{productName},
+	          PRODUCTORIGIN=#{productOrigin},
+	          PRODUCTPRICE=#{productPrice},
+	          PRODUCTCATEGORY=#{productCategory}
+	    <if test="fileName!=null">, FILENAME=#{fileName}</if>      
+	   WHERE PK=#{pk}       
+	</update>
+       
+      <sql id="baseselect" >
+        SELECT A.ID,PK,FILENAME,PRODUCTNAME,PRODUCTCATEGORY,
+        PRODUCTPRICE,PRODUCTORIGIN,B.NAME SELLER,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE 
+        FROM CART A,MEMBERSI B
+		WHERE A.ID=B.ID      
+      </sql>   
+      
+    <select id="selectClient" resultType="cart">
+       <include refid="baseselect"/>
+       
+    </select>    
+	<select id="selectCart" parameterType="java.util.HashMap" resultType="cart">
+		<include refid="baseselect"/>	
+		AND A.ID=#{id}
+		<if test="query!=null">
+		      AND ${query} LIKE '%'||#{data}||'%'
+		</if>		
+	</select>
+	<insert id="insertProduct" parameterType="cart">
+	  <selectKey keyProperty="pk" order="BEFORE"  resultType="java.lang.Integer">
+	    SELECT CART_SEQ.NEXTVAL FROM DUAL
+	  </selectKey>
+	  INSERT INTO CART VALUES(#{pk},#{productName},
+	  #{productOrigin},#{productPrice},#{productCategory},#{fileName},
+	  sysdate,#{id})	  
+	</insert> 
+	<select id="selectSeq" resultType="java.lang.Integer">
+	   SELECT REPLYVIEW_SEQ.NEXTVAL FROM DUAL
+	</select>	
+	<insert id="insertReply" parameterType="reply">
+	  INSERT INTO REPLYVIEW
+	  VALUES(#{no},#{contents},#{id},
+	  SYSDATE,#{ref},#{pnum},#{reply},#{infoPk})
+	</insert>
+	<select id="selectReply" parameterType="java.lang.Integer" resultType="reply">
+	 SELECT * FROM REPLYVIEW
+	 WHERE INFOPK=#{VALUE}
+	 ORDER BY REF DESC
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
