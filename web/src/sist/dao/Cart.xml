@@ -59,7 +59,25 @@ where a.id=b.id and a.id= 'iamipro' and b.type='seller'
 	 WHERE INFOPK=#{VALUE}
 	 ORDER BY REF DESC
 	</select>
+<select id="oneCart" parameterType="java.lang.Integer"
+		resultType="cart">
+		select
+		pk,productName,productOrigin,productPrice,productCategory,fileName,regdate,id
+		from cart where pk=#{pk}
 
+	</select>
+	<update id="modifyCart" parameterType="cart">
+		update cart set
+		productName=#{productName},productOrigin=#{productOrigin},productPrice=#{productPrice},productCategory=#{productCategory}
+		<if test="fileName!=null">
+			,fileName=#{fileName}
+		</if>
+		where pk=#{pk}
+	</update>
+	<delete id="deleteCart" parameterType="java.lang.Integer">
+		delete cart where pk=#{pk}
+
+	</delete>
 </mapper>
 
 

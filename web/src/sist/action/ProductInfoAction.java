@@ -32,10 +32,13 @@ public class ProductInfoAction implements Action {
 			int pk = Integer.parseInt(request.getParameter("pk"));
 			String job = request.getParameter("job");
 			CartBean bean = dao.oneCart(pk);
+			System.out.println(job);
 			if (job == null) {
 
 				String js = JsonChange.Json(bean);
 				request.setAttribute("js", js);
+				request.setAttribute("bean", bean);
+				request.setAttribute("reply", dao.selectReply(pk));
 			} else if (job.equals("info")) {
 				request.setAttribute("bean", bean);
 				request.setAttribute("reply", dao.selectReply(pk));
