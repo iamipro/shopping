@@ -11,7 +11,15 @@
 <title>Insert title here</title>
 </head>
 <script>
- 
+ function memberLogin(){
+	 var obj = document.loginFrm;
+	 var id = document.getElementById("id");
+	 var pw = document.getElementById("pw");
+	 if(id.value!=null&&id.value!=""&&pw.value!=null&&pw.value!=""){
+		 obj.submit();
+	 }
+	 
+ }
 
 </script>
 
@@ -27,12 +35,12 @@
 				<li class="login_font">로그인</li>
 				<li class="text01">DOSIAIRLINE 로그인페이지 입니다.</li>
 			</ul>
-            <form action="/web/memberLogin.do?cmd=memberLogin" method="post">	
+            <form action="/web/memberLogin.do?cmd=memberLogin" method="post" name="loginFrm">	
             		<div class="id_left">
 				<dl>
 					<dt>아이디</dt>
 					<dd><input type="text" name="id" id="id" value="" />
-					<input type="hidden" id="id" name="id" value=""/></dd>
+					<input type="hidden" id="id2" name="id2" value=""/></dd>
 				</dl>
 			</div>
 			<div class="id_left02">
@@ -47,13 +55,13 @@
 				<font id="failMessage" color="red" size="2"></font>
 			</span>
 			</div>
+			</form>
 			
 			<div class="login_check">
 				<ul>
-					<li><input type="submit" value="로그인"></li>
+					<li><input type="submit" value="로그인" onclick="memberLogin()"></li>
 				</ul>				
 			</div>
-</form>
 
 			<div class="search_login">
 				<ul>

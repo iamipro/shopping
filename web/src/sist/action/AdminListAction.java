@@ -24,11 +24,13 @@ public class AdminListAction implements Action {
 		
 		//System.out.println("AdminListAction"+request.getSession().getAttribute("id"));
 		//String id =(String)request.getParameter("id");
+		String id2 =(String)request.getSession().getAttribute("admin");
 		String id =(String)request.getSession().getAttribute("id");
 		String query = request.getParameter("query");
 		String data = request.getParameter("data");
 		HashMap<String, String>map = new HashMap<String,String>();
 		map.put("id", id);
+		map.put("admin", id2);
 		map.put("query", query);
 		map.put("data", data);
 		

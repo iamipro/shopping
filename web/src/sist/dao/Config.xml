@@ -17,6 +17,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   <typeAlias type="sist.bean.CartBean" alias="cart"/>
   <typeAlias type="sist.bean.ReplyBean" alias="reply"/>
   <typeAlias type="sist.bean.ShoppingMember" alias="member"/>
+  <typeAlias type="sist.bean.Admin" alias="admin"/>
+  <typeAlias type="sist.bean.ZipBean" alias="zip"/>
 </typeAliases>  
     
     <!-- DB연동 -->
@@ -59,6 +61,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <mappers>
       <mapper resource="sist/dao/Cart.xml"/>
       <mapper resource="sist/dao/Member.xml"/>
+      <mapper resource="sist/dao/ZipCode.xml"/>
+      <mapper resource="sist/dao/Admin.xml"/>
     </mappers>
 </configuration>
 

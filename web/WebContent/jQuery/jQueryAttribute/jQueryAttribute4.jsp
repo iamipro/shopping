@@ -7,15 +7,21 @@
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
-	$(function() {
+function changeMethod(){
+	var value=$("#cp option:selected").val();
+	$("input:radio[value='"+value+"']").attr("checked","checked");
+    $("input:text").val($("select#cb option:selected").text()); 
+}
+
+
+$(function() {
    $("select#cb>option[value='apple']").attr('selected','selected');
 	$("input[name='fruit']:radio").click(function(){
-		$("#cb > option[value='"+$(this).val()+"']").attr('selected','selectd');
+		$("#cb > option[value='"+$(this).val()+"']").prop('selected','selectd');
+		changeMethod();
 	});	
-	$("#cb").change(function(){
-		var value=$("#cp option:selected").val();
-		$("input:radio[value='"+value+"']").attr("checked","checked");
-	    $("input:text").val($("select#cb option:selected").text()); 
+	$("select#cb").change(function(){
+		changeMethod();
 	});   
 	/* 
 	  $("select#cb>option[value='apple']").attr('selected','selected');
@@ -57,10 +63,11 @@ color:white;
   <tr>
      <td colspan="8">
         °úÀÏ:<select id="cb">
-         <option value="apple" selected="selected">»ç°ú</option>
-         <option value="grape"  >Æ÷µµ</option>
-         <option value="strawberry"  >µþ±â</option>
-         <option value="melon"  >¸á·Ð</option>
+          <option value="sel" selected="selected"></option>
+         <option value="apple">»ç°ú</option>
+         <option value="grape">Æ÷µµ</option>
+         <option value="strawberry">µþ±â</option>
+         <option value="melon">¸á·Ð</option>
   
         </select>
              </td>

@@ -6,6 +6,28 @@ public class ZipBean {
 	private String gugun;
 	private String dong;
 	private String bunji;
+	private String seq;
+	
+	
+	
+	public ZipBean() {
+		super();
+	}
+	public ZipBean(String zipcode, String sido, String gugun, String dong, String bunji, String seq) {
+		super();
+		this.zipcode = zipcode;
+		this.sido = sido;
+		this.gugun = gugun;
+		this.dong = dong;
+		this.bunji = bunji;
+		this.seq = seq;
+	}
+	public String getSeq() {
+		return seq;
+	}
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
 	public String getZipcode() {
 		return zipcode;
 	}
@@ -39,8 +61,10 @@ public class ZipBean {
 	@Override
 	public String toString() {
 		return "ZipBean [zipcode=" + zipcode + ", sido=" + sido + ", gugun=" + gugun + ", dong=" + dong + ", bunji="
-				+ bunji + "]";
+				+ bunji + ", seq=" + seq + "]";
 	}
+	
+	
 	
 	
 

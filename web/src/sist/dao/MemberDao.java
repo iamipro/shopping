@@ -12,6 +12,24 @@ public class MemberDao {
 		sqlSessionFactory = SqlSessionFactoryManager.getSqlSessionFactory();
 	}
 	
+	public Integer getNumber() throws Exception{
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+		   return (Integer)sqlSession.selectOne("getNumber");
+           			
+		} catch (Exception e) {
+			e.printStackTrace();
+             return null;
+			// TODO: handle exception
+		}finally {
+			sqlSession.close();
+		}
+		
+	}
+	public boolean memberLoginCheck(String id, String pw){
+		Object obj = sqlSessionFactory.openSession().selectOne("memberLoginCheck", id);
+        return obj !=null && ((String)obj).equals(pw)?true: false;		
+	}
 	public void insertMember(ShoppingMember member) throws Exception{
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {

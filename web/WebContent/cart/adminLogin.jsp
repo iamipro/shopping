@@ -17,7 +17,7 @@
 	       
 		   $("input#id").click(function(){
 	  		  $(this).val('¾È³ç');
-	  	  }); */
+	  	  }); */ 
 	  		  
      
 	   $("img#btnSubmit").click(function(){

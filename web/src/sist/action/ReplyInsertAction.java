@@ -49,7 +49,7 @@ public class ReplyInsertAction implements Action {
             dao.insertReply(bean);
 		 
 			path += "&pk=" + infoPk + "&job=info";
-			System.out.println(bean);
+			System.out.println(bean+"reply");
             
 			
 		} catch (Exception e) {

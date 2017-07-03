@@ -23,11 +23,11 @@ public class CartDao {
 		return obj != null && ((String) obj).equals(pw) ? true : false;
 	}
   
-	public boolean memberLoginCheck(String id, String pw){
+	/*public boolean memberLoginCheck(String id, String pw){
 		Object obj = sqlSessionFactory.openSession().selectOne("memberLoginCheck", id);
         return obj !=null && ((String)obj).equals(pw)?true: false;		
 	}
-	
+	*/
 	public List<CartBean> selectCart(HashMap<String, String>map) throws Exception {
 
 		return sqlSessionFactory.openSession().selectList("selectCart", map);

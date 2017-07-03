@@ -75,7 +75,7 @@ public class ProductModifyAction implements Action{
 				  }//for
 				  
 				  bean.setId(String.valueOf(request.getSession().getAttribute("id")));
-				  System.out.println(bean);
+				  System.out.println(bean+"modify");
 				  dao.modifyCart(bean);
 			      
 			}//if

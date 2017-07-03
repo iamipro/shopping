@@ -26,7 +26,6 @@ public class DeleteProductAction implements Action{
 		// TODO Auto-generated method stub
 		
 		int pk = Integer.parseInt(request.getParameter("pk"));
-		System.out.println(pk);
 		try {
 			dao.deleteCart(pk);
 		} catch (Exception e) {

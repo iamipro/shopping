@@ -47,7 +47,8 @@ public class ActionFactory {
 		}else if(cmd.equals("cartDelete")){
 			action = new CartDeleteAction("cart/cartList.jsp", true);
 		}else if(cmd.equals("joinMember")){
-			action = new JoinMemberAction();
+			action = new JoinMemberAction("member/joinSuccess.jsp",true);
+			
 		}
 	
 		

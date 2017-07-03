@@ -71,7 +71,7 @@ $(document).ready(function(){
 			<div id="contentsWrap" class="sub_con5">
 				<div class="board_form">   
 		            <div class="con_title">
-		               <p>상품 등록/보기/수정</p>   
+		               <p>상품목록</p>   
 		            </div>
 	
 				<div class="contents">

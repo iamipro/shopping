@@ -3,10 +3,9 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sist.bean.CartBean">
-	<select id="loginCheck" parameterType="java.lang.String"
-		resultType="java.lang.String">
-		SELECT PW FROM MEMBERSI WHERE ID=#{id}
-	</select>
+	 
+	
+	
 	<select id="selectProductInfo" parameterType="java.lang.Integer" resultType="cart">
 	 	SELECT ID,PK,FILENAME,PRODUCTNAME,PRODUCTCATEGORY,
 		PRODUCTORIGIN,PRODUCTPRICE,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE
@@ -23,10 +22,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
        
       <sql id="baseselect" >
-        SELECT A.ID,PK,FILENAME,PRODUCTNAME,PRODUCTCATEGORY,
-        PRODUCTPRICE,PRODUCTORIGIN,B.NAME SELLER,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE 
-        FROM CART A,MEMBERSI B
-		WHERE A.ID=B.ID      
+     select a.id,pk,filename,productname,productcategory,productprice,productorigin,B.NAME SELLER,TO_CHAR(a.REGDATE,'YYYY/MM/DD')REGDATE
+from cart a, shoppingmember b
+where a.id=b.id and a.id= 'iamipro' and b.type='seller'  
       </sql>   
       
     <select id="selectClient" resultType="cart">

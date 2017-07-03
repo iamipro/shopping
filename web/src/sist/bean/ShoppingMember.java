@@ -8,14 +8,28 @@ private String birth;
 private String gender;
 private String email;
 private String phone;
+private String addr;
 private String zip;
 private String addr1;
 private String addr2;
 private String pw;
 private String regdate;
+private String type;
 
+	
 
-
+public String getType() {
+	return type;
+}
+public void setType(String type) {
+	this.type = type;
+}
+public String getAddr() {
+	return addr;
+}
+public void setAddr(String addr) {
+	this.addr = addr;
+}
 public int getNo() {
 	return no;
 }
@@ -92,7 +106,7 @@ public ShoppingMember(){
 	super();
 }
 public ShoppingMember(int no, String id, String name, String birth, String gender, String email, String phone,
-		String zip, String addr1, String addr2, String pw, String regdate) {
+		String addr, String zip, String addr1, String addr2, String pw, String regdate, String type) {
 	super();
 	this.no = no;
 	this.id = id;
@@ -101,19 +115,24 @@ public ShoppingMember(int no, String id, String name, String birth, String gende
 	this.gender = gender;
 	this.email = email;
 	this.phone = phone;
+	this.addr = addr;
 	this.zip = zip;
 	this.addr1 = addr1;
 	this.addr2 = addr2;
 	this.pw = pw;
 	this.regdate = regdate;
+	this.type = type;
 }
 @Override
 public String toString() {
 	return "ShoppingMember [no=" + no + ", id=" + id + ", name=" + name + ", birth=" + birth + ", gender=" + gender
-			+ ", email=" + email + ", phone=" + phone + ", zip=" + zip + ", addr1=" + addr1 + ", addr2=" + addr2
-			+ ", pw=" + pw + ", regdate=" + regdate + "]";
+			+ ", email=" + email + ", phone=" + phone + ", addr=" + addr + ", zip=" + zip + ", addr1=" + addr1
+			+ ", addr2=" + addr2 + ", pw=" + pw + ", regdate=" + regdate + ", type=" + type + "]";
 }
-	
+
+
+ 
+
 
 
 	

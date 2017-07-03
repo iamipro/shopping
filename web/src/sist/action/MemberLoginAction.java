@@ -4,11 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import sist.control.ActionForWard;
 import sist.dao.CartDao;
+import sist.dao.MemberDao;
 
 public class MemberLoginAction implements Action {
 private String path;
 private boolean redirect;
-private CartDao dao = new CartDao();
+private MemberDao dao = new MemberDao();
 
 public MemberLoginAction(){
 	super();
@@ -28,6 +29,7 @@ public ActionForWard execute(HttpServletRequest request) {
 	
 	if(dao.memberLoginCheck(id, pw)){
 		request.getSession().setAttribute("id", id);
+		request.getSession().setAttribute("user", id);
 		request.getSession().setMaxInactiveInterval(12000);
 		path = "shoppingList.do?cmd=shoppingList";
  
