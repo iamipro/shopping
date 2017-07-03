@@ -135,7 +135,8 @@ $(document).ready(function(){
 										
 						          <c:forEach var="i" items="${shoppingList}" varStatus="cnt" >			
 										<td>${cnt.count}</td>
-										<td><a href="productInfoClient.do?cmd=productInfoClient&job=info&pk=${i.pk}&id="+${id}!=null?${id}:"java">${i.productName}</a>
+										<td><a href="productInfoClient.do?cmd=productInfoClient&job=info&pk=${i.pk}&id=${id}">${i.productName}</a>
+										 
 										 </td>
 										<td>
 										<img src="/web/upload/${i.fileName}" width="50" height="50"></img></td>
