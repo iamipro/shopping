@@ -31,13 +31,16 @@ public class ShoppingListAction implements Action{
 		String query = request.getParameter("query");
         String data = request.getParameter("data");
 		HashMap<String, String>map = new HashMap<String,String>();
-		 
+		
+		  String id= (String) request.getSession().getAttribute("id");
         map.put("query", query);
         map.put("data", data);
         
 		try {
 			
-			
+			if(id!=null){
+				request.setAttribute("id", id);
+			}
 			request.setAttribute("shoppingList", dao.selectClient(map) );
 			 
 		} catch (Exception e) {

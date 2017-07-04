@@ -135,7 +135,7 @@ $(document).ready(function(){
 										
 						          <c:forEach var="i" items="${shoppingList}" varStatus="cnt" >			
 										<td>${cnt.count}</td>
-										<td><a href="productInfoClient.do?cmd=productInfoClient&job=info&pk=${i.pk}&id=${id}">${i.productName}</a>
+										<td><a href="productInfoClient.do?cmd=productInfoClient&job=info&pk=${i.pk}">${i.productName}</a>
 										 
 										 </td>
 										<td>

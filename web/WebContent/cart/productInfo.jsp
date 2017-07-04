@@ -43,7 +43,7 @@
 </script>
 </head>
 <body>
- 
+ ${id}
 	<div id="wrap">
 		<!-- header -->
 		<jsp:include page="../include/topGnb.jsp"></jsp:include>
@@ -58,7 +58,19 @@
 					<div class="contents">
 						<div class="btnSet clfix mgb15">
 							<span class="fr"> <span class="button"><a href="#">물품구매</a></span>
-								<span class="button"> <a href="cartAdd.do?cmd=cartAdd&pk=${bean.pk}">장바구니</a></span>
+							 
+							  <%
+							  
+							   if(request.getAttribute("id")!=null){
+								   String id= (String)request.getAttribute("id");
+								   System.out.println(id);
+							  %>
+							 
+								<span class="button"> <a href="cartAdd.do?cmd=cartAdd&pk=${bean.pk}&id=<%=id%>">장바구니</a></span>
+							     <%
+							   }
+							     %>
+							 
 								<span class="button"><a href="/web/shoppingList.do?cmd=shoppingList">목록</a></span>
 							</span>
 						</div>

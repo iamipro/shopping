@@ -15,9 +15,17 @@ private String addr2;
 private String pw;
 private String regdate;
 private String type;
+private String basket;
 
-	
 
+
+
+public String getBasket() {
+	return basket;
+}
+public void setBasket(String basket) {
+	this.basket = basket;
+}
 public String getType() {
 	return type;
 }
@@ -106,7 +114,7 @@ public ShoppingMember(){
 	super();
 }
 public ShoppingMember(int no, String id, String name, String birth, String gender, String email, String phone,
-		String addr, String zip, String addr1, String addr2, String pw, String regdate, String type) {
+		String addr, String zip, String addr1, String addr2, String pw, String regdate, String type, String basket) {
 	super();
 	this.no = no;
 	this.id = id;
@@ -122,13 +130,16 @@ public ShoppingMember(int no, String id, String name, String birth, String gende
 	this.pw = pw;
 	this.regdate = regdate;
 	this.type = type;
+	this.basket = basket;
 }
 @Override
 public String toString() {
 	return "ShoppingMember [no=" + no + ", id=" + id + ", name=" + name + ", birth=" + birth + ", gender=" + gender
 			+ ", email=" + email + ", phone=" + phone + ", addr=" + addr + ", zip=" + zip + ", addr1=" + addr1
-			+ ", addr2=" + addr2 + ", pw=" + pw + ", regdate=" + regdate + ", type=" + type + "]";
+			+ ", addr2=" + addr2 + ", pw=" + pw + ", regdate=" + regdate + ", type=" + type + ", basket=" + basket
+			+ "]";
 }
+ 
 
 
  
