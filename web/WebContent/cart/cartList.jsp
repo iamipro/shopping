@@ -53,6 +53,7 @@
 
 </head>
 <body onload="calcFunction()">
+<% String id = request.getParameter("id"); %>
 
 	<div id="wrap">
 		<!-- header -->
@@ -119,7 +120,7 @@
 								</thead>
 								<tbody>
 								
-					         <c:forEach var="i" items="${cart}" varStatus="cnt">			
+					         <c:forEach var="i" items="${basket}" varStatus="cnt">			
 									<tr>
 										<td>${cnt.count} </td>
 										<td>${i.productName}							 
@@ -138,7 +139,7 @@
 										</span>
 										<span class="buttonFuc">
 										
-											<a href="/web/cartDelete.do?cmd=cartDelete&pk=${i.pk}">삭제</a></span>
+											<a href="/web/cartDelete.do?cmd=cartDelete&pk=${i.pk}&id=<%=id%>">삭제</a></span>
 										</td>										
 									</tr>
 									</c:forEach>

@@ -46,12 +46,11 @@ public class CartAddAction implements Action {
 			String basket = member.getBaskets(id);
 			String [] m = basket.split(",");
 			int []m2 = new int[m.length];
-			/*for(int i=0;i<m.length<i++){
+			for(int i=0;i<m.length;i++){
 				    m2[i]= Integer.parseInt(m[i]);
+			        cart.add((CartBean)dao.oneCart(m2[i]));
 			}
-			*/
 			
-			cart = (ArrayList<CartBean>) session.getAttribute("basket");
 			if (cart == null) {
 				cart = new ArrayList<CartBean>();
 			}
@@ -67,6 +66,7 @@ public class CartAddAction implements Action {
 				smember.setBasket(String.valueOf(pk)+",");
                 member.insertShoppingBasket(smember);   
 				session.setAttribute("basket", cart);
+				request.setAttribute("id", id);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

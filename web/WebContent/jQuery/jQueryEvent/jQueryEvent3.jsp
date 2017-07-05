@@ -24,15 +24,16 @@ border : 1px solid lightgray;
            });
            $("h1").click(function(){
         	  $(this).html(function(index,html){
-        		  return html+'GO';
+        		  return '♡'+html+'♡';
         	  }); 
            });
           setInterval(function(){
         	 $("h1").last().trigger('click'); 
-          },100);    
+          },1000);    
+          
           setInterval(function(){
          	 $("h1").first().trigger('click'); 
-           },100); 
+           },1000); 
  	});
 </script>
 </head>
@@ -50,6 +51,6 @@ border : 1px solid lightgray;
 		<p>Process 3</p>
    </div> -->
   
-   <h1>TRIGGER:</h1> 
-  <h1>TRIGGER:</h1> </body>
+   <h1>명수성주</h1> 
+  </body>
 </html>

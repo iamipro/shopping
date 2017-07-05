@@ -17,7 +17,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    select pw from shoppingmember where id=#{id}
       
   </select>
-  
+    <update id="updateShoppingBasket" parameterType="member">
+     update shoppingmember set basket=#{basket} where id=#{id}
+    
+    </update>
     <update id="insertShoppingBasket" parameterType="member">
     
      update shoppingmember set basket=#{basket} where id=#{id}
