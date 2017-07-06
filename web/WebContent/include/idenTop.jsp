@@ -16,11 +16,11 @@
 	</div>
 		<div class="iden_menu">
 			<ul>
-				<li><a href="../member/identity01.jsp" class="desc">회원정보</a></li>
+				<li><a href="/web/myPage.do?cmd=myPage&id=${id}" class="desc">회원정보</a></li>
 				<li>|</li>
-				<li><a href="../member/identity02.jsp" class="desc">회원탈퇴</a></li>
+				<li><a href="/web/member/identity02.jsp" class="desc">회원탈퇴</a></li>
 			</ul>
-		</div>
+		</div> 
 			
 </body>
 </html>

@@ -16,6 +16,8 @@
 	<!--END Header-->
 
 	<!--Container-->
+	
+    
 	<div id="sub_container">
 		<div class="sub_con2">
 			<div class="identity">
@@ -26,9 +28,9 @@
 				
 				<div class="iden_submenu">
 					<ul>
-						<a href="../member/identity01.jsp"><li><img src=""><strong>회원정보 보기</strong></li></a>
-						<a href="../member/identity01_01.jsp"><li><img src="">회원정보 수정</li></a>
-						<a href="../member/identity01_02.jsp"><li><img src="">비밀번호 변경</li></a>
+						<a href="/web/myPage.do?cmd=myPage&id=${id}"><li><img src=""><strong>회원정보 보기</strong></li></a>
+						<a href="/web/memberModify.do?cmd=memberModify&id=${id}"><li><img src="">회원정보 수정</li></a>
+						<a href="/web/pwChange.do?cmd=pwChange&id=${id}"><li><img src="">비밀번호 변경</li></a>
 					</ul>
 				</div>
 				
@@ -37,23 +39,23 @@
 					<table cellpadding="0" cellspacing="0">
 						<tr>
 							<th>회원이름</th>
-							<td>하랄라</td>
+							<td>${member.name}</td>
 							<th></th>
 							<td></td>
 						</tr>
 						
 						<tr>
 							<th>휴대폰 번호</th>
-							<td>01010101</td>
+							<td>${member.phone}</td>
 							<th>생년월일</th>
-							<td>89111</td>
+							<td>${member.birth }</td>
 						</tr>
 						
 						<tr>
 							<th>주소</th>
-							<td>부산남구용호1동</td>
+							<td>${member.addr1}${member.addr2}</td>
 							<th>이메일 주소</th>
-							<td>motokrzr11@</td>
+							<td>${member.email }</td>
 							
 						</tr>
 						<!-- <tr>

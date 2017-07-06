@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="sist.bean.ShoppingMember">
 	<insert id="insertMember" parameterType="member">
 	
-	 insert into shoppingmember values(shoppingmember_seq.nextval,#{id},#{name},#{birth},#{gender},#{email},#{phone},#{zip},#{addr1},#{addr2},#{pw},sysdate,'user')
+	 insert into shoppingmember values(shoppingmember_seq.nextval,#{id},#{name},#{birth},#{gender},#{email},#{phone},#{zip},#{addr1},#{addr2},#{pw},sysdate,'user','','N')
 	</insert>
 	
 	 <select id="getNumber" resultType="java.lang.Integer">
@@ -14,20 +14,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 </select>
 
 	<select id="memberLoginCheck" parameterType="java.lang.String" resultType="java.lang.String">
-   select pw from shoppingmember where id=#{id}
+   select pw from shoppingmember where id=#{id} and isDeleted='N'
       
   </select>
+   <update id="deleteMember" parameterType="member">
+   update shoppingmember set where id=#{id} and isDeleted='Y'
+   
+   </update>
+    
     <update id="updateShoppingBasket" parameterType="member">
-     update shoppingmember set basket=#{basket} where id=#{id}
+     update shoppingmember set basket=#{basket} where id=#{id} and isDeleted='N'
     
     </update>
     <update id="insertShoppingBasket" parameterType="member">
     
-     update shoppingmember set basket=#{basket} where id=#{id}
+     update shoppingmember set basket=#{basket} where id=#{id} and isDeleted='N'
     </update>
     
     <select id="getBaskets" parameterType="java.lang.String" resultType="java.lang.String">
-     select basket from shoppingmember where id =#{id}
+     select basket from shoppingmember where id =#{id} and isDeleted='N'
+     
+    </select>
+  
+    <select id="getMemberMyPage" parameterType="java.lang.String" resultType="member">
+     select * from shoppingmember where id =#{id} and isDeleted='N'
      
     </select>
   

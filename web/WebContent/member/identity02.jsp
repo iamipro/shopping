@@ -8,6 +8,19 @@
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="../css/default.css" />
 </head>
+<script type="text/javascript">
+function comp(){
+	var obj = document.dFrm;
+	if(obj.pw.value!=""&&obj.pw.value!=null){
+		
+	obj.submit();
+	}else{
+		alert('패스워드를 입력해주세요');
+	}
+	
+}
+
+</script>
 
 <body style="background-color:white;">
 <!--Wrap-->
@@ -20,6 +33,11 @@
 	<div id="sub_container">
 		<div class="sub_con2">
 			<div class="del">
+		<%
+		String id = request.getParameter("id");
+		request.setAttribute("id", id);
+		%>		
+				
 				
 				<!-- idenTop.jsp include -->
 				<jsp:include page="../include/idenTop.jsp"></jsp:include>
@@ -30,12 +48,13 @@
 						<li>안내사항 동의 및 비밀번호 입력 후 [탈퇴] 버튼을 누르면 인터넷 회원의 탈퇴 처리가 완료 됩니다.</li>
 						<li><strong>탈퇴 후에는 인터넷 회원으로 재가입하실 수 있으나, 기존에 사용하셨던 아이디를 다시 사용하실 수는 없습니다.</strong></li>
 						<li>
-							<input type="checkbox">&nbsp;인터넷 회원 탈퇴를 원합니다.
+							<input type="checkbox" id="check" name="check">&nbsp;인터넷 회원 탈퇴를 원합니다.
 						</li>
 					</ul>
 					<ul class="del_button">
 						<li>비밀번호 입력</li>
-						<li><input type="text" name="mbpw">&nbsp;<a href="javascript:comp()"><input type="button" value="확인" onclick="location.href='.jsp'"/></a></li>
+						<form action="deleteProcess.jsp?id=<%=id%>" method="post" name="dFrm">
+						<li><input type="text" id="pw" name="pw" value="">&nbsp;</form><a href="javascript:comp()"><input type="button" value="확인"/></a></li>
 					</ul>
 				</div>
 				</form>

@@ -47,7 +47,18 @@
                <li>|</li>
                <li>
                   <a href="/web/member/join.jsp" class="desc">회원가입</a>
-                  <a href="/web/member/identity01.jsp" class="desc">마이페이지</a>
+                  <%
+                  if(session.getAttribute("user")!=null){
+                      String name=(String)session.getAttribute("id");
+                  
+                  %>
+                  
+                  <a href="/web/myPage.do?cmd=myPage&id=<%=name%>" class="desc">마이페이지</a>
+                  
+                  <%
+                  }
+                  %>
+                  
                </li>
             </ul>
          </div>
@@ -77,11 +88,19 @@
 	 		    	<li><i style="padding:7px; font-size: 17px; background-color: turquoise; border-radius: 50%; color:snow;"  class="fa fa-shopping-cart"></i></li>
 					<li style="width:80px; margin-right:20px;">쇼핑</li>
 					</a>
-					<a href="/web/cart/cartList.jsp">
+				  <%
+					  if(session.getAttribute("user")!=null){
+						  String id=(String)session.getAttribute("user");
+					%>
+					<a href="/web/cartAdd.do?cmd=cartAdd&id=<%=id%>&job=list">
 						<li><img src="/web/img/reserve.png" onmouseover="this.src='/web/img/reserve_on.png'" onmouseout="this.src='/web/img/reserve.png'"></li>
 						<li style="width:80px; margin-right:20px;">장바구니</li>
 					</a>
-
+                    <%
+					  }
+                    %>  
+               
+                    
 					<a href="/web/board/board.jsp">
 					<li><img src="/web/img/sch.png" onmouseover="this.src='/web/img/sch_on.png'" onmouseout="this.src='/web/img/sch.png'"></li>
 					<li style="width:80px; margin-right:20px;">게시판</li>

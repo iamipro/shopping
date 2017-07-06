@@ -43,7 +43,7 @@
 </script>
 </head>
 <body>
- ${id}
+ 
 	<div id="wrap">
 		<!-- header -->
 		<jsp:include page="../include/topGnb.jsp"></jsp:include>

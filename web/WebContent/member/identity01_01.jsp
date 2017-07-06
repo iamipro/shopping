@@ -29,9 +29,9 @@
 			
 				<div class="iden_submenu">	
 					<ul>
-						<a href="../member/identity01.jsp"><li><img src="">회원정보 보기</li></a>
-						<a href="../member/identity01_01.jsp"><li><img src=""><strong>회원정보 수정</strong></li></a>
-						<a href="../member/identity01_02.jsp"><li><img src="">비밀번호 변경</li></a>
+						<a href="/web/myPage.do?cmd=myPage&id=${id}"><li><img src="">회원정보 보기</li></a>
+						<a href=""><li><img src=""><strong>회원정보 수정</strong></li></a>
+						<a href="/web/pwChange.do?cmd=pwChange&id=${id}"><li><img src="">비밀번호 변경</li></a>
 					</ul>
 				</div>
 				<div class="iden_info">
@@ -41,13 +41,13 @@
 					<table cellpadding="0" cellspacing="0">
 						<tr>
 							<th>회원이름</th>
-							<td>이름</td>
+							<td>${member.name}</td>
 							<th></th>
 							<td></td>
 						</tr>
 					</table>
 				</div>
-				
+				<form action="/web/memberModify.do?cmd=memberModify&id=${id}" method="post" name="cFrm">
 				<div class="info_con">
 					<div class="info_l">
 						<ul>

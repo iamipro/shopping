@@ -45,6 +45,25 @@ public class MemberDao {
 		}
 		
 	}
+	
+	public ShoppingMember getMemberMyPage(String id) throws Exception{
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return (ShoppingMember)sqlSession.selectOne("getMemberMyPage", id);
+			
+		} catch (Exception e) {
+		    e.printStackTrace();
+			return null;
+			// TODO: handle exception
+		}finally {
+			sqlSession.close();
+		}
+		
+		
+		
+	}
+	
+	
 	public String getBaskets(String id) throws Exception{
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
@@ -72,12 +91,29 @@ public class MemberDao {
 		}
 		
 	}
-	
-	public void insertShoppingBasket(ShoppingMember member) throws Exception{
+	public void deleteMember(ShoppingMember member) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
-			sqlSession.update("insertShoppingBasket",member);
+			sqlSession.update("deleteMember",member);
 			sqlSession.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			sqlSession.rollback();
+			// TODO: handle exception
+		}finally {
+			sqlSession.close();
+		}
+	}
+	
+	public void insertShoppingBasket(ShoppingMember member) throws Exception{
+		System.out.println("insertShoppingBasket 메소드들어옴");
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			System.out.println("insertShoppingBasket try문 들어옴");
+			sqlSession.update("insertShoppingBasket",member);
+			System.out.println("insertShoppingBasket try문 들어오고 update함");
+			sqlSession.commit();
+			System.out.println("commit완료"+member+"가 장바구니 변경");
 		} catch (Exception e) {
 			e.printStackTrace();
 			sqlSession.rollback();
