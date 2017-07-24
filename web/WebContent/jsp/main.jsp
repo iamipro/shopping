@@ -11,7 +11,7 @@
 <body>
 	<div id="wrap">
 		<!--Header-->
-		<jsp:include page="../include/topGnb.jsp"></jsp:include>
+		<jsp:include page="/web/include/topGnb.jsp"></jsp:include>
 		<!--END Header-->
 		
 		<div id="container">
@@ -27,7 +27,7 @@
 								<a href="#">
 									<li>
 										<p class="notice_p01">
-											<img src="../img/d1.jpg">
+											<img src="/web/img/d1.jpg">
 										</p>
 										<p class="notice_p02">Happy</p>
 										<p class="notice_p03">사람은 행복하기로 마음먹은 만큼 행복하다</br>-에이브리햄 링컨-</p>
@@ -36,7 +36,7 @@
 								<a href="#">
 									<li>
 										<p class="notice_p01">
-											<img src="../img/d2.jpg">
+											<img src="/web/img/d2.jpg">
 										</p>
 										<p class="notice_p02">다잘될꺼야</p>
 										<p class="notice_p03">어떤 위대한 일도 열정 없이 이루어진건 없다</br>-랠프 왈도 에머슨-</p>
@@ -45,7 +45,7 @@
 								<a href="#">
 									<li>
 										<p class="notice_p01">
-											<img src="../img/d3.jpg">
+											<img src="/web/img/d3.jpg">
 										</p>
 										<p class="notice_p02">클라우디아 블랙</p>
 										<p class="notice_p03">자신을 신뢰하자 당신의 인식은 종종 </br>당신의 신념보다 훨씬 더 정확하다</br></p>
@@ -54,7 +54,7 @@
 								<a href="#">
 									<li>
 										<p class="notice_p01">
-											<img src="../img/d4.jpg">
+											<img src="/web/img/d4.jpg">
 										</p>
 										<p class="notice_p02">Blue</p>
 										<p class="notice_p03">겨울이 가고 봄이 찾아오죠</br>우린 시들고 그리움 속에 맘이 멍들었죠</p>
@@ -65,7 +65,7 @@
 					</div>
 				</div>
 		<!--Footer-->
-		<jsp:include page="../include/footer.jsp"></jsp:include>
+		<jsp:include page="/web/include/footer.jsp"></jsp:include>
 		<!--END Footer-->
 			
 	</div>
